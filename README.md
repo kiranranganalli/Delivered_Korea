@@ -1,63 +1,7 @@
-Final Project Report
+## *Analyzing Customer Behaviors and Characteristics to Identify High-Value Users*
 
+# *1.Executive Summary*
 
-
-
-
-
-A Project Report submitted as a course requirement. 
-for
-BUS895 – Research Projects in Business
-
-
-
-
-
-
-
-
-
-
-
-Submitted by: 
-Kiran Ranganalli
-
-
-
-
-Index
-Executive Summary ...................................................... 3
-Introduction ................................................................... 4
-Background .................................................................. 4
-3.1 Client Industry.............................................. 4
-3.2 Market Dynamics......................................... 4
-3.3 Supporting Research................................... 5
-Problem Statement ....................................................... 6
-4.1 Business Question....................................... 6
-4.2 Importance..........……………………………..6
-Methodology ................................................................. 7
-5.1 Data Preparation.......................................... 7
-Analysis and Results .................................................... 10
-6.1 Exploratory Data Analysis .......................... 10
-6.1.1 Univariate Analysis……………..…10
-6.1.2 Bivariate Analysis……………...…13
-6.2 Analytical Approach……………………...….15
-6.2.1 Linear Regression (OLS)..............15
-6.2.2 Random Forest……………………22
-6.3 Model Summary……………………………..22
-6.3.1 OLS Model……………….…….…22
-6.3.2 Random Forest Model…………..23
-6.4 Key Findings ............................................ 24
-6.4.1 Business Insights…………...…...25
-6.4.2 Recommendations to Clients..…26
-Discussion and Conclusion ....................................... 27
-7.1 Discussion…………………………………..27
-7.2 Conclusion……………….……………….…27
-References ................................................................ 28
-
-Analyzing Customer Behaviors and Characteristics to Identify High-Value Users
-
-1.Executive Summary
 Delivered Korea, a leading international e-commerce logistics provider, conducted a comprehensive analysis to uncover the behaviors and characteristics that define high-value customers. This report offers actionable insights derived from customer data, focusing on spending patterns, marketing engagement, and regional trends.[1] The findings reveal that email marketing plays a pivotal role in driving higher spending, as customers who opt into marketing emails consistently demonstrate increased purchase behavior.[2] Additionally, the analysis highlights a strong correlation between premium shipping preferences, such as FedEx IP (2~4 Days), and high-value spending, indicating a preference for speed and reliability among top-tier customers. Specific vendors, including BTS, IU, and BlackPink, also emerge as key drivers of customer loyalty and high-value purchases, presenting significant opportunities for exclusive collaborations and tailored promotions. Geographic analysis further identifies regions like Arizona and Northern Ireland as hotspots for high-value customers, providing a basis for targeted regional marketing strategies.[1]
 The report also addresses key limitations, such as the moderate R-squared values observed in predictive models, suggesting the need for further exploration of customer demographics, seasonal trends, and additional predictors to enhance model accuracy. Moreover, it identifies underperforming vendors and regions, offering potential areas for improvement to broaden the customer base.[2]  By leveraging these insights, Delivered Korea is well-positioned to enhance customer segmentation, optimize marketing strategies, and promote behaviors that increase customer lifetime value. These findings lay a strong foundation for sustainable revenue growth by aligning the company’s offerings with the preferences and characteristics of its most valuable customers.[1][2]
 
@@ -66,15 +10,16 @@ The report also addresses key limitations, such as the moderate R-squared values
 
 
 
-2.Introduction
+# *2.Introduction*
 Delivered Korea operates in the cross-border e-commerce and logistics sector, facilitating international shipments of Korean goods. The company integrates with platforms like Shopify to ensure seamless global customer access to Korean products. With an extensive network of logistics partners and a commitment to delivering high-quality service, Delivered Korea has established itself as a reliable provider in the competitive e-commerce logistics industry.[1]
 In the rapidly growing e-commerce market, understanding customer behavior is essential to maintaining a competitive edge. High-value customers often contribute disproportionately to overall revenue, making it critical to identify their key characteristics and preferences.[1] This report focuses on analyzing customer data to uncover insights that can guide marketing strategies, operational improvements, and customer retention initiatives. By leveraging data-driven methods, Delivered Korea aims to strengthen its position in the market and provide exceptional value to its customers.[1][2]
 
-3.Background
-3.1 Client Industry
+# *3.Background*
+*3.1 Client Industry*
 Delivered Korea is a South Korean company specializing in cross-border e-commerce logistics, facilitating the global distribution of Korean products. The company aims to bridge Korean sellers with international buyers, ensuring seamless access to authentic Korean goods.[1]
 The company offers a comprehensive suite of services, including parcel forwarding, e-commerce fulfillment, and dropshipping, tailored to meet the demands of the global market.Strategically headquartered in Busan, Delivered Korea operates a warehouse that serves as a central hub for domestic orders, which are then shipped directly to customers worldwide.The company has attracted investment from notable partners, including Beenos Partners, reflecting confidence in its business model and growth potential.[2][3] Through its official online store, DKshop, Delivered Korea caters to global K-pop fans and enthusiasts of Korean lifestyle products, further solidifying its position in the international e-commerce landscape.[1][3]
-3.2 Market Dynamics
+
+*3.2 Market Dynamics*
 Delivered Korea is a prominent player in the international logistics and e-commerce sector, specializing in cross-border shipping solutions that connect Korean products with consumers worldwide.[4] Leveraging a robust infrastructure and strategic partnerships, the company ensures efficient and reliable delivery services across multiple regions. By integrating advanced logistics technologies and maintaining a customer-centric approach, Delivered Korea effectively meets the growing global demand for Korean goods, positioning itself as a key facilitator in the international e-commerce landscape.[4]
 The global e-commerce logistics market is experiencing significant growth, with projections indicating an increase from USD 441.55 billion in 2024 to approximately USD 1,903.08 billion by 2032, reflecting a compound annual growth rate (CAGR) of 20.04% over the forecast period.
 This expansion is driven by rising consumer demand for international goods and advancements in logistics technologies. Delivered Korea is well-positioned to capitalize on these opportunities by leveraging its expertise and infrastructure to provide efficient cross-border shipping solutions.[4][5]
@@ -82,25 +27,33 @@ In the evolving e-commerce landscape, customers increasingly expect faster, reli
 Delivered Korea's focus on premium shipping options and seamless integrations ensures it remains competitive in meeting these heightened customer expectations.[6]
 The e-commerce logistics sector is highly competitive, with both global logistics giants and regional players striving for market share. To differentiate itself, Delivered Korea emphasizes customer-centric services, such as targeted marketing and optimized delivery networks, aligning with industry trends that prioritize speed, efficiency, and customization to meet modern shopper needs.[4][6]
 By focusing on these areas, Delivered Korea enhances its competitive edge in the dynamic e-commerce logistics market.
-3.3 Supporting Research
+
+*3.3 Supporting Research*
+
 Supporting research underscores the pivotal role that high-value customers play in driving revenue within the e-commerce industry, often aligning with the Pareto Principle, where 80% of revenue is generated by 20% of customers.[6] Retaining and understanding these high-value users is crucial for sustained profitability, as they exhibit greater engagement, higher purchase frequency, and stronger brand loyalty.[7] Studies emphasize the importance of leveraging data to identify and cater to this customer segment effectively.[8]
 In recent years, the e-commerce and logistics sector has seen widespread adoption of advanced analytics, enabling businesses to perform customer segmentation and predictive modeling with greater precision.[9] This trend enhances decision-making and fosters growth, as businesses can tailor their strategies to align with customer preferences and behaviors. Personalized marketing strategies have become increasingly prominent, with research showing that a majority of consumers are more likely to make purchases when brands offer personalized experiences.[10] This approach not only improves customer satisfaction but also drives loyalty and repeat purchases.[11]
 Additionally, there has been a growing emphasis on environmental sustainability in logistics, driven by consumer and regulatory demands. Companies are innovating to offer eco-friendly solutions such as carbon-neutral shipping and sustainable packaging, which align with global efforts to reduce emissions.[12] Furthermore, advancements in technology, particularly in artificial intelligence (AI) and machine learning, are transforming supply chain operations and improving delivery efficiency. These technologies enable businesses to optimize their logistics networks, reducing costs while enhancing customer satisfaction.[13]
 Delivered Korea’s commitment to utilizing advanced analytics and staying abreast of these trends positions the company as a leader in the logistics industry.[6][12] By analyzing customer behaviors and spending patterns, Delivered Korea is able to provide actionable recommendations that enhance operational efficiency and maximize revenue streams, ensuring its continued success in a competitive market.[6][13]
 
 
-4.Problem Statement
-4.1 Business Question
+# *4.Problem Statement*
+
+*4.1 Business Question*
+
 Delivered Korea seeks to understand customer behaviors and characteristics to effectively identify high-value users while distinguishing them from low-value users. This analysis aims to uncover actionable insights that can guide strategic decision-making, improve customer segmentation, and enhance operational efficiency. By examining spending patterns, marketing engagement, and shipping preferences, the company hopes to develop targeted strategies that maximize the value of its high-spending customers and explore opportunities to uplift low-spending ones.
-4.2 Importance
+
+*4.2 Importance*
+
 In the competitive e-commerce logistics market, high-value customers play a critical role in driving profitability and growth. Identifying and understanding the behaviors and characteristics of these users allows Delivered Korea to develop strategies to maximize their engagement and satisfaction. Additionally, analyzing the traits of lower-value customers enables the company to design targeted interventions to improve their value contribution.
 This analysis empowers Delivered Korea to:
 Refine Marketing Strategies: Gain insights into the behaviors that drive high-value customer actions, enabling more precise and effective marketing efforts.
 Enhance Customer Segmentation: Improve segmentation to deliver tailored experiences and increase customer loyalty.
 Optimize Operations: Align resources to better serve high-value users, improving shipping, inventory, and customer service strategies.
 Achieve Sustainable Growth: Drive long-term profitability by focusing on actionable characteristics and behaviors that differentiate customer segments.
-5.Methodology
-5.1 Data Preparation
+
+# *5.Methodology*
+
+*5.1 Data Preparation*
 
 Delivered Korea's dataset is sourced from their Shopify platform, encompassing three primary tables: Customers, Products, and Orders. Each table contains distinct information critical for analyzing customer behaviors and spending patterns.
 The Customers table comprises over 30,000 observations collected between January 2020 and August 2024. It includes seven key variables, such as Customer ID, Email, Country Code, Total Spent, Total Orders, and Marketing Acceptance indicators. This table provides foundational customer profile information essential for segmentation and targeted analysis.
@@ -109,7 +62,7 @@ The Orders table captures over 4,000 orders made between January 2023 and June 2
 This comprehensive dataset spans customer profiles, product details, and order records, creating a robust foundation for analyzing high-value customer characteristics and spending patterns.
 
 
-5.1.1 Data Collection
+*5.1.1 Data Collection*
 Data was collected from Delivered Korea’s Shopify database, focusing on two primary datasets: Customers, Orders and Products. These datasets include a rich variety of features to enable comprehensive analysis:
 Customers Dataset:
 Profile information such as Total Spent,Shipping cost and Total orders.
@@ -126,7 +79,9 @@ Detailed order-level information, including order value, line-item details (quan
 Time-based data, such as order placement and fulfillment timestamps, to calculate delivery speeds.
 Geographic data, such as shipping destination (province and country).
 There were around 4,000+ observations with Twenty one variables
-5.1.2 Data Cleaning
+
+*5.1.2 Data Cleaning*
+
 Duplicate Removal:
 Identified and removed 135 duplicate entries based on unique customer IDs and order numbers to maintain data integrity.
 Handling Missing Values:
@@ -141,7 +96,9 @@ Normalized date formats (e.g., Paid At, Fulfilled At) to ensure compatibility fo
 Final Validation:
 Ensured no null values remained in critical columns (e.g., Total Spent, Shipping Cost).
 Verified data consistency across merged datasets (e.g., matching email addresses in Customers and Orders datasets).
-5.1.3 Data Transformation
+
+*5.1.3 Data Transformation*
+
 		Encoding:
 Applied one-hot encoding to categorical variables such as Shipping Methods and Country Codes to enable their use in machine learning models.
 Used label encoding for ordinal variables like Vendor Types for compact numeric representation.
@@ -152,13 +109,20 @@ Created binary indicators (0/1) for email and SMS marketing engagement to quanti
 Grouped shipping methods into broader categories, such as Express and Standard, for high-level analysis.
 Validation:
 Confirmed that transformed variables aligned with the original data structure and ensured no information loss during encoding or scaling
-5.2 Integration:
+
+*5.2 Integration:*
+
 Merged Two datasets (customer profiles and orders with reference to  marketing metrics) into a unified dataset by matching unique identifiers such as customer emails.
 Ensured no duplicate or inconsistent records post-merge.
-6.Analysis and Results
-6.1 Exploratory Data Analysis
+
+# *6.Analysis and Results*
+
+*6.1 Exploratory Data Analysis*
+
 The exploratory data analysis (EDA) was conducted in two stages to uncover insights into customer behaviors and characteristics:
-6.1.1 Univariate Analysis
+
+*6.1.1 Univariate Analysis*
+
 Distribution of Vendor Frequency:
 The bar chart illustrates the frequency distribution of the top 10 vendors in the dataset. BTS stands out as the most frequent vendor, with 748 transactions, followed by Ateez with 551 transactions. These vendors show significant customer engagement, indicating their popularity and strong contribution to overall sales. Other notable vendors include DK Shop (271 transactions) and Stray Kids (253 transactions), which also play a substantial role. Lesser frequent vendors like Zerobaseone, Seventeen, and Enhypen show moderate levels of customer interaction, with frequencies ranging between 98 and 111. The vendors with the least frequency in this top 10 list, including Starbucks and Blackpink, each account for 64 to 68 transactions. The descriptive statistics reveal an average frequency of 234.8 transactions among these top vendors, with a median of 112 transactions, a minimum of 64, and a maximum of 748, collectively contributing to a total frequency of 2,348 transactions.
 
@@ -172,7 +136,8 @@ The summary statistics further contextualize the data, with a mean frequency of 
 Shipping Methods for Express and Standard:
 The chart highlights customer preferences for shipping methods, with standard options like "Domestic Shipping To Your Suite (671)" and "Shipping To Your Delivered Korea Suite (668)" being the most popular. Express methods such as "FedEx IP (2~4 Days)" (402) and "FedEx International Priority" (336) also show significant usage, indicating demand for faster delivery. Standard methods dominate overall, but express options are preferred by high-value customers, showcasing the need for diverse shipping solutions to cater to varying preferences.
 
-6.1.2  Bivariate Analysis
+*6.1.2  Bivariate Analysis*
+
 Heavy vs Light Users:
 Heavy and light users were classified based on their total spending behavior. Heavy users are defined as those whose total spending exceeds $222, while light users are those with spending below this threshold. This cutoff was selected after analyzing the spending distribution, where $222 corresponds to the upper quartile, representing a clear distinction between the majority of users and the top spenders. Heavy users account for the top 25% of total spenders, indicating their significance in revenue contribution.
 In the dataset, 98.18% of users (27,111 out of 27,611) were classified as light users, contributing to 11.8% of total spending, while 1.82% of users (500 out of 27,611) were classified as heavy users, accounting for 88.2% of total spending. This analysis highlights that while light users dominate in terms of user count, heavy users contribute disproportionately to the company's revenue, making them the focal point for targeted strategies.
@@ -190,26 +155,29 @@ This analysis highlights the countries contributing the most to Delivered Korea�
 
 
 
-6.2 Analytical Approach Model Selection: 
+*6.2 Analytical Approach Model Selection:*
 
-6.2.1 Linear Regression (OLS): 
+*6.2.1 Linear Regression (OLS):*
 Used for interpretability and identifying statistically significant predictors of customer spending. 
 
-6.2.2 Random Forest: 
+*6.2.2 Random Forest:*
 Applied for feature importance analysis to understand variable contribution. 
 
-Model Training:
+*Model Training:*
  Split data into training (80%) and testing (20%) sets. Used cross-validation to ensure robust model performance. 
 
-Evaluation Metrics: 
+*Evaluation Metrics:*
 Evaluated models using R-squared, mean squared error (MSE), and feature importance rankings. Assessed p-values in OLS regression to determine statistical significance of predictors. 
 
-Segmentation Analysis:
+*Segmentation Analysis:*
  Classified customers into high-value and low-value groups based on spending thresholds. Performed comparative analysis of customer characteristics across these groups.
 
- Key Findings
-Regression Analysis (OLS):
-Objective
+# *Key Findings*
+
+**Regression Analysis (OLS):**
+
+*Objective*
+
 The primary objective of the OLS model is to:
 Understand which factors significantly influence customer spending (Total Spent).
 Quantify the relationship between independent variables (predictors) and the dependent variable (Total Spent).
@@ -225,9 +193,11 @@ Shipping Method (Categorical: One-hot encoded)
 Shipping Province Name (Categorical: One-hot encoded)
 Vendor (Categorical: One-hot encoded)
 Discount Amount (Numeric)
+
 These predictors were chosen based on their relevance to customer spending behavior.
 To improve the robustness of the model, we applied a log transformation to the dependent variable, Total Spent. This decision was motivated by the highly skewed distribution of the data and the presence of outliers. The raw spending data exhibited a right skew, with a majority of customers having low spending amounts and a small proportion of heavy spenders creating extreme values. These outliers could disproportionately influence the results, leading to biased coefficients and an inaccurate representation of the predictors' effects.
 By applying a log transformation (Log_Total Spent = log(1 + Total Spent)), we stabilized the variance, reduced the influence of outliers, and achieved a more normal-like distribution for the dependent variable. This transformation ensures that the model captures the relationships between predictors and spending behavior more accurately and enables meaningful interpretation of the coefficients in percentage terms.
+
 Categorical Variables Converted to Dummy Variables
 When categorical variables are one-hot encoded, each unique category is transformed into a binary (0/1) variable. In this process, one category is selected as the reference category, and the coefficients of the other categories are interpreted relative to this reference. The reference categories for each variable in the model are:
 Shipping Method (One-hot encoded):
@@ -243,8 +213,9 @@ Reason for Dummy Variable Transformation
 Dummy variables allow categorical variables to be used in regression models by encoding them numerically. This ensures the model interprets the relationship between categories correctly without assuming an inherent order, as with numerical data. Reference categories are essential to avoid multicollinearity, where variables are too highly correlated, making it difficult for the model to estimate coefficients accurately.
 
 
-6.3 Model Summary
-6.3.1 Here is the summary of the OLS model:
+*6.3 Model Summary*
+
+*6.3.1 Here is the summary of the OLS model:*
 
  
 
@@ -304,7 +275,7 @@ Promotional Focus on Premium Shipping: Highlighting the benefits of premium ship
 Region-Specific Offers: Tailor promotional offers based on geographic insights. For instance, exclusive promotions in Arizona and Northern Ireland could further leverage the higher spending observed in these areas.
 Incentivizing High-Value Behaviors: Design loyalty programs or incentives for customers who repeatedly engage in high-value behaviors, such as opting into email marketing or choosing premium shipping.
 
-Limitations and Future Directions
+# *Limitations and Future Directions*
 Moderate R-squared:
 While the model explains 31.3% of variability, exploring additional predictors such as customer demographics or seasonal trends could enhance the model's predictive power.
 Interpreting Vendor Contributions:
@@ -314,7 +285,8 @@ Analyze underperforming regions to identify opportunities for growth or investig
 6.3.2 Here is the summary of Random Forest Model:
 
 
-Objective
+# *Objective*
+
 The primary objectives of the Random Forest model are to:
 Identify the most influential factors driving customer spending (Total Spent).
 Rank features based on their importance to spending behavior.
@@ -346,7 +318,7 @@ Vendor_Stray Kids and Fedex Ip (2~4 Days):
 Preferences for specific vendors and premium shipping options correlate with high spending.
 
 
-Model Performance:
+*Model Performance:*
 Mean Squared Error (MSE):
 0.733: This value measures the average squared difference between the predicted and actual log-transformed Total Spent. While a lower value is preferred, it’s reasonable given the complexity of customer behavior.
 R-squared:
