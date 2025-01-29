@@ -212,6 +212,15 @@ Coefficients of dummy variables represent the effect of that category relative t
 Reason for Dummy Variable Transformation
 Dummy variables allow categorical variables to be used in regression models by encoding them numerically. This ensures the model interprets the relationship between categories correctly without assuming an inherent order, as with numerical data. Reference categories are essential to avoid multicollinearity, where variables are too highly correlated, making it difficult for the model to estimate coefficients accurately.
 
+<img width="409" alt="image" src="https://github.com/user-attachments/assets/1b172884-0769-40f2-b337-f7aa85d28730" />
+
+<img width="409" alt="image" src="https://github.com/user-attachments/assets/69f5956a-196b-49b8-b270-bd03c260f091" />
+
+<img width="409" alt="image" src="https://github.com/user-attachments/assets/425e3ed2-4f37-4486-bf27-97d79fa81c7b" />
+
+<img width="983" alt="image" src="https://github.com/user-attachments/assets/5acf47e6-16f8-4ea3-830b-0abadbd3d07f" />
+
+
 
 *6.3 Model Summary*
 
